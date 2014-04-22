@@ -1,15 +1,62 @@
-## Put comments here that give an overall description of what your
-## functions do
+#################################Coursera - R Programming########################################
+#########################Programming Assignment 2: Lexical Scoping###############################
+## This code was made by Leonardo Moreno Naranjo
 
-## Write a short comment describing this function
+######## Description
+## This first function (makeCacheMatrix) allows to create a"special" matrix that save the inverse matrix
+## into cache.
+## If the results was stored previously in cache,  the second function (cacheSolve) retrieve the solution 
+## from the cache memory or compute the inverse matrix
+
+
+## First Function: store the inverse matrix in the cache memory
 
 makeCacheMatrix <- function(x = matrix()) {
-
+  
+  in1<- NULL
+  set<- function(y){
+        x<<-y
+        in1<<-NULL
+  }
+  get<- function()x
+  setinv<-function(result)in1<<-result
+  getinv<-function()in1
+  list(set=set,get=get,
+       setinv=setinv,
+       getinv=getinv)
 }
 
 
-## Write a short comment describing this function
+
+## Function 2: calculate the inverse matrix, if the results were stored in cache previously, returns the
+## values from this memory, else, compute the inverse matrix
 
 cacheSolve <- function(x, ...) {
-        ## Return a matrix that is the inverse of 'x'
+      in1<-x$getinv()
+      if(!is.null(in1)){
+        message("Retrieving from cache data:This function Works! :)")
+        return(in1)
+      }
+      v<-x$get()
+      in1<-solve(v,...)
+      x$setinv(in1)
+      in1
 }
+
+#### Test the functions
+## 1 option
+
+F<-matrix(1:4,2,2)
+u<-makeCacheMatrix(F)
+cacheSolve(u)
+
+##2 option
+k<-c(1,0,5,2,1,6,3,4,0)
+J<-matrix(k,3,3)
+s<-makeCacheMatrix(J)
+cacheSolve(s) #run this function twice and see what happens
+
+## Thanks for review me!
+
+
+
