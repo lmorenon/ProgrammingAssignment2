@@ -58,5 +58,5 @@ cacheSolve(s) #run this function twice and see what happens
 
 ## Thanks for review me!
 
-
-
+library(knitr)
+spin()

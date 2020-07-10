@@ -1,18 +1,17 @@
 
 
-```r
+
 #################################Coursera - R Programming########################################
 #########################Programming Assignment 2: Lexical Scoping###############################
-## This code was made by Leonardo Moreno Naranjo
+# This code was made by Leonardo Moreno Naranjo
 
-######## Description
-## This first function (makeCacheMatrix) allows to create a"special" matrix that save the inverse matrix
-## into cache.
-## If the results was stored previously in cache,  the second function (cacheSolve) retrieve the solution 
-## from the cache memory or compute the inverse matrix
+## Description
+This first function (makeCacheMatrix) allows to create a"special" matrix that save the inverse matrix into cache.
+If the results was stored previously in cache,  the second function (cacheSolve) retrieve the solution from the cache memory or compute the inverse matrix
 
 
-## First Function: store the inverse matrix in the cache memory
+### *First Function:* store the inverse matrix in the cache memory
+```r
 
 makeCacheMatrix <- function(x = matrix()) {
   
@@ -29,10 +28,11 @@ makeCacheMatrix <- function(x = matrix()) {
        getinv=getinv)
 }
 
+```
 
+### *Function 2:* calculate the inverse matrix, if the results were stored in cache previously, returns the values from this memory, else, compute the inverse matrix
 
-## Function 2: calculate the inverse matrix, if the results were stored in cache previously, returns the
-## values from this memory, else, compute the inverse matrix
+```r
 
 cacheSolve <- function(x, ...) {
       in1<-x$getinv()
@@ -45,10 +45,10 @@ cacheSolve <- function(x, ...) {
       x$setinv(in1)
       in1
 }
-
-#### Test the functions
-## 1 option
-
+```
+### Test the functions
+#### 1 option
+```r
 F<-matrix(1:4,2,2)
 u<-makeCacheMatrix(F)
 cacheSolve(u)
@@ -60,8 +60,9 @@ cacheSolve(u)
 ## [2,]    1 -0.5
 ```
 
+
+####2 option
 ```r
-##2 option
 k<-c(1,0,5,2,1,6,3,4,0)
 J<-matrix(k,3,3)
 s<-makeCacheMatrix(J)
@@ -75,7 +76,7 @@ cacheSolve(s) #run this function twice and see what happens
 ## [3,]   -5    4    1
 ```
 
-```r
-## Thanks for review me!
+
+## *Thanks for review me!*
 ```
 
