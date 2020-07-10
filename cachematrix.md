@@ -1,9 +1,11 @@
 
 
 
-#################################Coursera - R Programming########################################
-#########################Programming Assignment 2: Lexical Scoping###############################
-# This code was made by Leonardo Moreno Naranjo
+#                              *Coursera - R Programming*
+#                      *Programming Assignment 2: Lexical Scoping*
+
+
+### This code was made by Leonardo Moreno Naranjo
 
 ## Description
 This first function (makeCacheMatrix) allows to create a"special" matrix that save the inverse matrix into cache.
@@ -61,7 +63,7 @@ cacheSolve(u)
 ```
 
 
-####2 option
+#### 2 option
 ```r
 k<-c(1,0,5,2,1,6,3,4,0)
 J<-matrix(k,3,3)
